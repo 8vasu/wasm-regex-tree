@@ -15,6 +15,9 @@ build:
 test:
 	cargo test
 
+clean:
+	cargo clean
+
 deploy:
 	wasm-pack build --target web
 	cp pkg/wasm_regex_tree.js app/
