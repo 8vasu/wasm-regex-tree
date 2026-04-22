@@ -1,0 +1,5 @@
+target/
+pkg/
+app/*.wasm
+app/wasm_regex_tree.js
+.DS_Store
