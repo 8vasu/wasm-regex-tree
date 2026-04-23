@@ -2,7 +2,7 @@
 
 WebAssembly visualizer for Rust regular expressions.
 
-Parses Rust regular expressions using [regex-syntax](https://docs.rs/regex-syntax) and converts resulting Abstract Syntax Tree (syntactic) and High-level Intermediate Representation (semantic) to SVG.
+Parses Rust regular expressions using [regex-syntax](https://docs.rs/regex-syntax) and converts resulting Abstract Syntax Trees (syntactic) and High-level Intermediate Representations (semantic) to SVGs.
 
 To run it in your web browser, [click here](https://soumendraganguly.com/regex).
 
