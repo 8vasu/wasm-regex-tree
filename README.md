@@ -21,7 +21,7 @@ $ rustup target add wasm32-unknown-unknown
 ```sh
 $ cargo install wasm-pack
 ```
-- Optional for formatting and linting:
+4. Optional for formatting and linting:
 ```sh
 $ rustup component add rustfmt clippy
 ```

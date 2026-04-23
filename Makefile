@@ -1,4 +1,4 @@
-.PHONY: check fmt clippy build test deploy
+.PHONY: check fmt clippy build test clean serve
 
 check:
 	cargo fmt -- --check && cargo clippy

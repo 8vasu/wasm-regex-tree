@@ -17,17 +17,17 @@
 use std::fs;
 use std::io::{BufRead, BufReader, Write};
 use std::net::{TcpListener, TcpStream};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::thread;
 
-fn content_type(path: &PathBuf) -> &'static str {
+fn content_type(path: &Path) -> &'static str {
     match path.extension().and_then(|e| e.to_str()) {
         Some("html") => "text/html",
-        Some("js")   => "application/javascript",
+        Some("js") => "application/javascript",
         Some("wasm") => "application/wasm",
-        Some("css")  => "text/css",
-        Some("svg")  => "image/svg+xml",
-        _            => "application/octet-stream",
+        Some("css") => "text/css",
+        Some("svg") => "image/svg+xml",
+        _ => "application/octet-stream",
     }
 }
 
@@ -48,7 +48,7 @@ fn handle(mut stream: TcpStream, root: PathBuf) {
 
     let file_path = match url_path {
         "/" => root.join("index.html"),
-        p   => root.join(p.trim_start_matches('/')),
+        p => root.join(p.trim_start_matches('/')),
     };
 
     match fs::read(&file_path) {
