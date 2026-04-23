@@ -11,8 +11,7 @@ To run it in your web browser, [click here](https://soumendraganguly.com/regex).
 
 ## Prerequisites
 
-- [rustup](https://rustup.rs/)
-- [Rust](https://rust-lang.org/) and [Cargo](https://doc.rust-lang.org/cargo/): `rustup install stable`
+- [rustup](https://rustup.rs/) (installs [Rust](https://rust-lang.org/) and [Cargo](https://doc.rust-lang.org/cargo/))
 - wasm32 target: `rustup target add wasm32-unknown-unknown`
 - [wasm-pack](https://github.com/wasm-bindgen/wasm-pack): `cargo install wasm-pack`
 - Optional for formatting and linting: `rustup component add rustfmt clippy`
