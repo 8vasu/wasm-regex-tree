@@ -6,20 +6,30 @@ Parses Rust regular expressions using [regex-syntax](https://docs.rs/regex-synta
 
 To run it in your web browser, [click here](https://soumendraganguly.com/regex).
 
-![coverPNG](cover/cover.png)
-![coverSVG](cover/cover.svg)
+<p align="center">
+  <img src="cover.svg" alt="coverSVG"/>
+</p>
 
 ## Prerequisites
 
-- [rustup](https://rustup.rs/) (installs [Rust](https://rust-lang.org/) and [Cargo](https://doc.rust-lang.org/cargo/))
-- wasm32 target: `rustup target add wasm32-unknown-unknown`
-- [wasm-pack](https://github.com/wasm-bindgen/wasm-pack): `cargo install wasm-pack`
-- Optional for formatting and linting: `rustup component add rustfmt clippy`
+1. [rustup](https://rustup.rs/) (installs [Rust](https://rust-lang.org/) and [Cargo](https://doc.rust-lang.org/cargo/))
+2. Install the wasm32 target:
+```sh
+$ rustup target add wasm32-unknown-unknown
+```
+3. Install [wasm-pack](https://github.com/wasm-bindgen/wasm-pack):
+```sh
+$ cargo install wasm-pack
+```
+- Optional for formatting and linting:
+```sh
+$ rustup component add rustfmt clippy
+```
 
 ## Build and run
 
 ```sh
-make build && make serve
+$ make build && make serve
 ```
 
 Then open `http://localhost:8080` in your web browser.
