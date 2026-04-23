@@ -6,25 +6,21 @@ Parses Rust regular expressions using [regex-syntax](https://docs.rs/regex-synta
 
 To run it in your web browser, [click here](https://soumendraganguly.com/regex).
 
-![coverImage](cover.png)
+![coverPNG](cover/cover.png)
+![coverSVG](cover/cover.svg)
+
+## Prerequisites
+
+- [rustup](https://rustup.rs/)
+- [Rust](https://rust-lang.org/) and [Cargo](https://doc.rust-lang.org/cargo/): `rustup install stable`
+- wasm32 target: `rustup target add wasm32-unknown-unknown`
+- [wasm-pack](https://github.com/wasm-bindgen/wasm-pack): `cargo install wasm-pack`
+- Optional for formatting and linting: `rustup component add rustfmt clippy`
 
 ## Build and run
 
 ```sh
-make deploy && make serve
+make build && make serve
 ```
 
-Then open `http://localhost:8080/app/` in your web browser.
-
-## Make targets
-
-```
-check    cargo fmt --check and cargo clippy
-fmt      cargo fmt
-clippy   cargo clippy --fix
-build    cargo build
-test     cargo test
-clean    cargo clean
-deploy   wasm-pack build, copy WASM and glue JS to app/
-serve    python3 http.server on port 8080
-```
+Then open `http://localhost:8080` in your web browser.

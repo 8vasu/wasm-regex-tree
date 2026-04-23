@@ -10,18 +10,16 @@ clippy:
 	cargo clippy --fix
 
 build:
-	cargo build
+	wasm-pack build --target web
+	cp pkg/wasm_regex_tree.js app/
+	cp pkg/wasm_regex_tree_bg.wasm app/
 
 test:
 	cargo test
 
 clean:
 	cargo clean
-
-deploy:
-	wasm-pack build --target web
-	cp pkg/wasm_regex_tree.js app/
-	cp pkg/wasm_regex_tree_bg.wasm app/
+	rm -f app/wasm_regex_tree.js app/wasm_regex_tree_bg.wasm
 
 serve:
-	python3 -m http.server 8080
+	cargo run --bin serve -- 8080

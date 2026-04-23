@@ -2,8 +2,8 @@
 name = "wasm-regex-tree"
 version = "0.1.0"
 authors = ["Soumendra Ganguly <soumendraganguly@gmail.com>"]
-edition = "2018"
-license = "GPL-3.0-only"
+edition = "2021"
+license = "GPL-3.0-or-later"
 description = "WebAssembly visualizer for Rust regular expressions."
 
 [lib]
