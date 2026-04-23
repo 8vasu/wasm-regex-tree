@@ -73,4 +73,11 @@ function run() {
 btn.addEventListener("click", run);
 patternEl.addEventListener("keydown", e => { if (e.key === "Enter") run(); });
 
+document.getElementById("params-btn").addEventListener("click", () => {
+  document.getElementById("params-panel").classList.toggle("visible");
+});
+document.getElementById("legend-btn").addEventListener("click", () => {
+  document.getElementById("legend-panel").classList.toggle("visible");
+});
+
 run();
