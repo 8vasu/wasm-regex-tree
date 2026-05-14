@@ -14,33 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use crate::node::Node;
-use regex_syntax::ast::Ast;
-use regex_syntax::ast::{visit, Visitor};
-
-pub struct TreeBuilder {
-    nodes: Vec<Node>,
-    stack: Vec<usize>,
-}
-
-impl TreeBuilder {
-    pub fn new() -> Self {
-        TreeBuilder {
-            nodes: Vec::new(),
-            stack: Vec::new(),
-        }
-    }
-}
+use crate::node::{Node, NodeVec, TreeBuilder};
+use regex_syntax::ast::{visit, Ast, Visitor};
 
 impl Visitor for TreeBuilder {
-    type Output = Vec<Node>;
+    type Output = NodeVec;
     type Err = ();
 
-    fn finish(self) -> Result<Vec<Node>, ()> {
+    fn finish(self) -> Result<Self::Output, Self::Err> {
         Ok(self.nodes)
     }
 
-    fn visit_pre(&mut self, ast: &Ast) -> Result<(), ()> {
+    fn visit_pre(&mut self, ast: &Ast) -> Result<(), Self::Err> {
         let parent = self.stack.last().copied();
         let index = self.nodes.len();
 
@@ -59,13 +44,13 @@ impl Visitor for TreeBuilder {
         Ok(())
     }
 
-    fn visit_post(&mut self, _ast: &Ast) -> Result<(), ()> {
+    fn visit_post(&mut self, _ast: &Ast) -> Result<(), Self::Err> {
         self.stack.pop();
         Ok(())
     }
 }
 
-pub fn build(pattern: &str) -> Result<Vec<Node>, String> {
+pub fn build(pattern: &str) -> Result<NodeVec, String> {
     let ast = regex_syntax::ast::parse::Parser::new()
         .parse(pattern)
         .map_err(|e| e.to_string())?;

@@ -20,3 +20,19 @@ pub struct Node {
     pub parent: Option<usize>,
     pub children: Vec<usize>,
 }
+
+pub type NodeVec = Vec<Node>;
+
+pub struct TreeBuilder {
+    pub nodes: NodeVec,
+    pub stack: Vec<usize>,
+}
+
+impl TreeBuilder {
+    pub fn new() -> Self {
+        TreeBuilder {
+            nodes: Vec::new(),
+            stack: Vec::new(),
+        }
+    }
+}
